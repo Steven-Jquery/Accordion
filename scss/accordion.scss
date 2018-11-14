@@ -1,0 +1,41 @@
+@import 'mixins';
+@import 'variable';
+
+.wrap-accordion{
+	margin: 20px auto;
+	padding: 20px;
+	.list-accordion{
+		.item-accordion{
+			border: 1px solid rgba($color-black, 0.1);
+			margin-bottom: 20px;
+			.title{
+				background-color: rgba($color-black, 0.1);
+				padding: 10px;
+				color: rgba($color-black, 0.8);
+				cursor: pointer;
+				line-height: 1;
+				font-size: 20px;
+				@include flexbox;
+				@include align-items(center);
+				@include justify-content(space-between);
+				&:after{
+					@include arrow-light(10, 10, 2, rgba($color-black, 0.8), 45);
+					position: relative;
+					top: -3px;
+				}
+				&.active{
+					background-color: $color-green;
+					color: $color-white;
+					&:after{
+						@include arrow-light(10, 10, 2, rgba($color-white, 0.8), -135);
+						top: 3px;
+					}
+				}
+			}
+			.content-accordion{
+				padding: 20px;
+				display: none;
+			}
+		}
+	}
+}
